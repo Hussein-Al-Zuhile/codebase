@@ -46,19 +46,20 @@ fun StudentCard(modifier: Modifier = Modifier) {
     Card(modifier) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier
-                .padding(DefaultDp)
+            modifier =
+                Modifier
+                    .padding(DefaultDp),
         ) {
             var textsHeight by remember { mutableStateOf(0) }
             Image(
                 painter = painterResource(R.drawable.temp_profile_pic),
                 contentDescription = null,
                 contentScale = ContentScale.Fit,
-                modifier = Modifier
-                    .height(textsHeight.dp)
-                    .clip(RoundedCornerShape(ThreeQuarteredDoubleDefaultDp))
-                    .border(0.5.dp, color = Gray, RoundedCornerShape(ThreeQuarteredDoubleDefaultDp))
-
+                modifier =
+                    Modifier
+                        .height(textsHeight.dp)
+                        .clip(RoundedCornerShape(ThreeQuarteredDoubleDefaultDp))
+                        .border(0.5.dp, color = Gray, RoundedCornerShape(ThreeQuarteredDoubleDefaultDp)),
             )
             Spacer(Modifier.width(HalfDefaultDp))
             Column(
@@ -73,9 +74,9 @@ fun StudentCard(modifier: Modifier = Modifier) {
                     Modifier
                         .background(Color.White, RoundedCornerShape(HalfDefaultDp))
                         .padding(
-                            horizontal = DefaultDp
+                            horizontal = DefaultDp,
                         ),
-                    color = MaterialTheme.colorScheme.secondary
+                    color = MaterialTheme.colorScheme.secondary,
                 )
                 Spacer(Modifier.height(HalfDefaultDp))
                 Text(
@@ -89,7 +90,7 @@ fun StudentCard(modifier: Modifier = Modifier) {
                 Spacer(Modifier.height(HalfDefaultDp))
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.height(IntrinsicSize.Min)
+                    modifier = Modifier.height(IntrinsicSize.Min),
                 ) {
                     Box(
                         Modifier
@@ -97,7 +98,7 @@ fun StudentCard(modifier: Modifier = Modifier) {
                             .aspectRatio(1f)
                             .padding(QuarterDefaultDp)
                             .clip(CircleShape)
-                            .background(Color.Red)
+                            .background(Color.Red),
                     )
                     Text("Complete")
                 }

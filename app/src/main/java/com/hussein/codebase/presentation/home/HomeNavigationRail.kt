@@ -41,7 +41,6 @@ import com.hussein.codebase.presentation.theme.SmartDrivingTestExaminerNewTheme
 import com.hussein.codebase.presentation.theme.ThreeQuarteredDoubleDefaultDp
 import kotlinx.serialization.Serializable
 
-
 @Composable
 fun HomeNavigationRail(
     currentDestination: HomeNavigationDestinations,
@@ -54,7 +53,7 @@ fun HomeNavigationRail(
             painterResource(R.drawable.bg_login_screen),
             contentDescription = null,
             contentScale = ContentScale.Crop,
-            modifier = Modifier.matchParentSize()
+            modifier = Modifier.matchParentSize(),
         )
         NavigationRail(containerColor = Color.Transparent, header = {
             Spacer(Modifier.height(HalfDefaultDp))
@@ -62,11 +61,12 @@ fun HomeNavigationRail(
                 painterResource(R.drawable.temp_profile_pic),
                 contentDescription = null,
                 contentScale = ContentScale.Fit,
-                modifier = Modifier
-                    .clip(CircleShape)
-                    .fillMaxWidth(0.6f)
-                    .aspectRatio(1f)
-                    .border(1.dp, Color.White, CircleShape)
+                modifier =
+                    Modifier
+                        .clip(CircleShape)
+                        .fillMaxWidth(0.6f)
+                        .aspectRatio(1f)
+                        .border(1.dp, Color.White, CircleShape),
             )
             Text("Ayman Mahranin", color = Color.White)
             Text("37801", color = Color.White)
@@ -75,18 +75,19 @@ fun HomeNavigationRail(
                 HomeNavigationItem(
                     item = it,
                     selected = currentDestination == it,
-                    onDestinationSelected = onDestinationSelected
+                    onDestinationSelected = onDestinationSelected,
                 )
             }
             Spacer(Modifier.weight(1f))
             // Logout
             Column(
-                modifier = modifier
-                    .clickable(onClick = onLogoutClicked)
-                    .fillMaxWidth()
-                    .padding(horizontal = DefaultDp)
-                    .padding(bottom = HalfDefaultDp),
-                horizontalAlignment = Alignment.CenterHorizontally
+                modifier =
+                    modifier
+                        .clickable(onClick = onLogoutClicked)
+                        .fillMaxWidth()
+                        .padding(horizontal = DefaultDp)
+                        .padding(bottom = HalfDefaultDp),
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
 //                Image(
 //                    painter = painterResource(R.drawable.ic_logout_new),
@@ -95,7 +96,7 @@ fun HomeNavigationRail(
 //                )
                 Text(
                     stringResource(R.string.logout).uppercase(),
-                    color = AppColors.LightRed
+                    color = AppColors.LightRed,
                 )
             }
         }
@@ -125,28 +126,27 @@ sealed class HomeNavigationDestinations(
     data object DriveTest : HomeNavigationDestinations(
         R.string.drive_test,
         icon = R.drawable.ic_drive_test_selected,
-        unselectedIcon = R.drawable.ic_drive_test_unselected
+        unselectedIcon = R.drawable.ic_drive_test_unselected,
     )
 
     @Serializable
     data object StudentList : HomeNavigationDestinations(
         R.string.student_list,
         icon = R.drawable.ic_student_list_selected,
-        unselectedIcon = R.drawable.ic_student_list_unselected
+        unselectedIcon = R.drawable.ic_student_list_unselected,
     )
 
     companion object {
-        fun values(): Array<HomeNavigationDestinations> {
-            return arrayOf(DriveTest, StudentList)
-        }
+        fun values(): Array<HomeNavigationDestinations> = arrayOf(DriveTest, StudentList)
 
-        fun valueOf(value: String): HomeNavigationDestinations {
-            return when (value) {
+        fun valueOf(value: String): HomeNavigationDestinations =
+            when (value) {
                 "DriveTest" -> DriveTest
                 "StudentList" -> StudentList
-                else -> throw IllegalArgumentException("No object com.tatweer.smartdrivingtest.presentation.home.HomeNavigationDestinations.$value")
+                else -> throw IllegalArgumentException(
+                    "No object com.tatweer.smartdrivingtest.presentation.home.HomeNavigationDestinations.$value",
+                )
             }
-        }
     }
 }
 
@@ -158,20 +158,23 @@ fun HomeNavigationItem(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier
-            .clickable { onDestinationSelected(item) }
-            .fillMaxWidth()
-            .background(if (selected) Color.White else Color.Transparent)
-            .padding(horizontal = DefaultDp),
-        horizontalAlignment = Alignment.CenterHorizontally
+        modifier =
+            modifier
+                .clickable { onDestinationSelected(item) }
+                .fillMaxWidth()
+                .background(if (selected) Color.White else Color.Transparent)
+                .padding(horizontal = DefaultDp),
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Image(
-            painter = painterResource(
-                if (selected)
-                    item.icon
-                else
-                    item.unselectedIcon
-            ),
+            painter =
+                painterResource(
+                    if (selected) {
+                        item.icon
+                    } else {
+                        item.unselectedIcon
+                    },
+                ),
             contentDescription = null,
             Modifier
                 .padding(vertical = DefaultDp)
@@ -179,7 +182,7 @@ fun HomeNavigationItem(
         )
         Text(
             stringResource(item.title),
-            color = if (selected) MaterialTheme.colorScheme.primary else Color.White
+            color = if (selected) MaterialTheme.colorScheme.primary else Color.White,
         )
     }
 }
@@ -191,7 +194,7 @@ private fun HomeNavigationItemPreview() {
         HomeNavigationItem(
             item = HomeNavigationDestinations.DriveTest,
             selected = true,
-            onDestinationSelected = {}
+            onDestinationSelected = {},
         )
     }
 }

@@ -8,18 +8,18 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.hussein.codebase.features.driveTest.DriveTestScreen
-import com.hussein.codebase.presentation.studentList.StudentListScreen
 import com.hussein.codebase.presentation.home.HomeNavigationDestinations
+import com.hussein.codebase.presentation.studentList.StudentListScreen
 
 @Composable
 fun HomeNavHost(
     modifier: Modifier = Modifier,
-    navController: NavHostController = rememberNavController()
+    navController: NavHostController = rememberNavController(),
 ) {
     NavHost(
         navController = navController,
         startDestination = HomeNavigationDestinations.DriveTest,
-        modifier = modifier
+        modifier = modifier,
     ) {
         composable<HomeNavigationDestinations.DriveTest> {
             DriveTestScreen()

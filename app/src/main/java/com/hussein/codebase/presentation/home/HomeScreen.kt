@@ -38,7 +38,7 @@ import com.hussein.codebase.presentation.theme.SmartDrivingTestExaminerNewTheme
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
     Surface(modifier) {
-        Row() {
+        Row {
             val navController = rememberNavController()
             val currentDestination =
                 navController.currentBackStackEntryAsState().value?.toRoute<HomeNavigationDestinations>()
@@ -47,13 +47,13 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 currentDestination,
                 { navController.navigate(it) },
                 onLogoutClicked = {},
-                Modifier.width(150.dp)
+                Modifier.width(150.dp),
             )
             Column {
                 Row(
                     Modifier
                         .height(IntrinsicSize.Min)
-                        .padding(DefaultDp)
+                        .padding(DefaultDp),
                 ) {
                     var searchBarExpanded by remember { mutableStateOf(false) }
                     var query by remember { mutableStateOf("") }
@@ -64,14 +64,14 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                                 onQueryChange = { query = it },
                                 onSearch = {},
                                 expanded = searchBarExpanded,
-                                onExpandedChange = { searchBarExpanded = it }
+                                onExpandedChange = { searchBarExpanded = it },
                             )
                         },
                         expanded = searchBarExpanded,
                         onExpandedChange = {
                             searchBarExpanded = it
                         },
-                        Modifier.weight(1f)
+                        Modifier.weight(1f),
                     ) { }
 
                     Spacer(Modifier.weight(1f))
@@ -83,9 +83,10 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 }
 
                 ElevatedCard(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(DefaultDp),
+                    modifier =
+                        Modifier
+                            .fillMaxSize()
+                            .padding(DefaultDp),
                     colors = CardDefaults.cardColors(containerColor = Lotion),
                 ) {
                     HomeNavHost(navController = navController)

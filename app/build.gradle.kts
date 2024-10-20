@@ -3,10 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     kotlin("plugin.serialization")
     alias(libs.plugins.kotlin.compose)
-
-
 }
-
 android {
     namespace = "com.hussein.codebase"
     compileSdk = 35
@@ -29,7 +26,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -89,5 +86,4 @@ dependencies {
     implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.ktor.client.resources)
     implementation(libs.ktor.client.logging)
-
 }

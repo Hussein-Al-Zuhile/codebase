@@ -33,7 +33,8 @@ class MainActivity : ComponentActivity() {
                 SmartDrivingTestExaminerNewTheme {
                     val viewModel: MainViewModel = koinViewModel()
                     val studentsResult =
-                        viewModel.getAllStudents()
+                        viewModel
+                            .getAllStudents()
                             .collectAsStateWithLifecycle(initialValue = Result.initial())
 
                     println(studentsResult)
@@ -58,7 +59,6 @@ class MainActivity : ComponentActivity() {
                                 }
 
                                 is Result.Failure -> {
-
                                 }
 
                                 else -> {}
@@ -72,10 +72,13 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun Greeting(
+    name: String,
+    modifier: Modifier = Modifier,
+) {
     Text(
         text = "Hello $name!",
-        modifier = modifier
+        modifier = modifier,
     )
 }
 

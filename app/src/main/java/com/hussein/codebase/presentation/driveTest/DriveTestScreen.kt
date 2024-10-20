@@ -7,7 +7,6 @@ import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
 fun DriveTestScreen(modifier: Modifier = Modifier) {
-
 }
 
 @Preview(device = Devices.TABLET)

@@ -19,6 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Smart Driving Test Examiner New"
+rootProject.name = "Codebase"
 include(":app")
- 

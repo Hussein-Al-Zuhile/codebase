@@ -8,7 +8,5 @@ class MainViewModel(
     private val getAllStudentsUseCase: GetAllStudentsUseCase,
     private val getStudentUseCase: GetStudentUseCase,
 ) : BaseViewModel() {
-
-
     fun getAllStudents() = getAllStudentsUseCase()
 }
